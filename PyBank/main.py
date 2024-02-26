@@ -45,9 +45,22 @@ with open(csv_file, 'r') as file:
         
         #count number of items in list using len function
         month_count=len(column_list_date)
+        #add all profit/loss values together to get a net total
         net_total_pl=sum(pl_as_numbers)
+        
+        
+        #calculate changes in profit/loss between each row
+        pl_changes = [] #empty list to store all change values
+        for pl_value in range(1, len(pl_as_numbers)):
+            change = pl_as_numbers[pl_value] - pl_as_numbers[pl_value - 1]
+            pl_changes.append(change)
 
-print("Total Months: ", month_count, (f"Total: ${net_total_pl}"))
+            #calculate average of all pforit/loss changes over time
+            average_pl_change = 
+
+            
+
+print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${}"))
 
 
 
