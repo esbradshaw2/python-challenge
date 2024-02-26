@@ -1,12 +1,10 @@
 #PyBank Script: Analyzing budget data records
-#                   -months included
+#                   - total # months included
 #                   -net total profits/losses
 #                   -changes in profits/losses & average of changes
 #                   -greatest increase in profits
 #                   -greatest decrease in profits
 
-#choose csv file to read from
-#file='Resources/budget_data.csv'
 
 #with open(file, 'r') as text:
 #    lines=text.read()
@@ -19,20 +17,28 @@ import os
 import csv
 
 #set the path to chosen csv file
-csvpath=os.path.join('Resources','budget_data.csv')
+csv_file=os.path.join('Resources','budget_data.csv')
 
-#translating our csv file to be read in python
-with open(csvpath) as csvfile:
-    
-    #specify variable and delimiter
-    csvreader=csv.reader(csvfile, delimiter=',')
+#specifying column index to extract total number of months
+column_index_date = 0
 
-    print(csvreader)
-    
-    #to read out header row
-    csv_header=next(csvreader)
-    print(f"CSV Header: {csv_header}")
-   
-    #read each row after header
-    for row in csvreader:
-        print(row)
+#empty list to store column data
+column_list = []
+
+#read csv file & extract data
+with open(csv_file, 'r') as file:
+    csv_reader=csv.reader(file)
+    next(csv_reader)
+    for row in csv_reader:
+        column_list.append(row[column_index_date])
+        month_count=len(column_list)
+
+print("Total Months: ", month_count)
+
+
+
+
+
+
+
+
