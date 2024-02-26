@@ -1,4 +1,4 @@
 PyBank:
 
 all code came from/was learned through class lecture resources, 
-with additional error and clarification help from Xpert Learning Assistant
+with error, clarification, and additional code help from Xpert Learning Assistant

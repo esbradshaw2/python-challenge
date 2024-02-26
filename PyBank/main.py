@@ -49,7 +49,7 @@ with open(csv_file, 'r') as file:
         net_total_pl=sum(pl_as_numbers)
         
         
-        #calculate changes in profit/loss between each row
+        #calculate changes in profit/loss from one date to the next
         pl_changes = [] #empty list to store all change values
         for pl_value in range(1, len(pl_as_numbers)):
             change = pl_as_numbers[pl_value] - pl_as_numbers[pl_value - 1]
@@ -59,10 +59,10 @@ with open(csv_file, 'r') as file:
             average_pl_change = round((sum(pl_changes) / len(pl_changes)), 2)
 
 
-        #for pl_value in pl_changes:
             greatest_increase = max(pl_changes)
             greatest_decrease = min(pl_changes)
 
+        for i in pl_changes:
             
 
 print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${average_pl_change}"), (f"Greatest Increase in Profits:  (${greatest_increase})"), (f"Greatest Decrease in Profits: (${greatest_decrease})"))
