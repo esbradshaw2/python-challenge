@@ -85,12 +85,9 @@ with open(csv_file, 'r') as file:
             #... and find the corresponding date for the greatest decrease value
             corresponding_date_decrease = pl_change_dictionary['date'][date_index_2 + 1]
 
-        
-
-     
-
-
-print(
+#naming the group of final outputs for print purposes
+    #using "\n" to physically separate each value into different rows (stacked row by row in this file for organizational purposes)
+pybank_results=(
     "Financial Analysis",
     "--------------------------------",
     (f"Total Months: {month_count}"),
@@ -101,7 +98,12 @@ print(
     sep='\n'
     )
 
+#print results to the terminal
+print(pybank_results)
 
+#export analysis to a text file
+with open('pybank_results.txt', 'w') as file:
+    file.write(pybank_results)
 
 
 
