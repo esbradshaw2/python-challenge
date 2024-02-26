@@ -93,11 +93,12 @@ with open(csv_file, 'r') as file:
 print(
     "Financial Analysis",
     "--------------------------------",
-    "Total Months: ", month_count,
+    (f"Total Months: {month_count}"),
     (f"Total: ${net_total_pl}"),
     (f"Average Change: ${average_pl_change}"),
     (f"Greatest Increase in Profits: {corresponding_date_increase} (${greatest_increase})"),
-    (f"Greatest Decrease in Profits: {corresponding_date_decrease} (${greatest_decrease})")
+    (f"Greatest Decrease in Profits: {corresponding_date_decrease} (${greatest_decrease})"),
+    sep='\n'
     )
 
 
