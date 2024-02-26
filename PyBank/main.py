@@ -85,27 +85,20 @@ with open(csv_file, 'r') as file:
             #... and find the corresponding date for the greatest decrease value
             corresponding_date_decrease = pl_change_dictionary['date'][date_index_2 + 1]
 
-#naming the group of final outputs for print purposes
+#print results to terminal
     #using "\n" to physically separate each value into different rows (stacked row by row in this file for organizational purposes)
-pybank_results=(
-    "Financial Analysis",
-    "--------------------------------",
-    (f"Total Months: {month_count}"),
-    (f"Total: ${net_total_pl}"),
-    (f"Average Change: ${average_pl_change}"),
-    (f"Greatest Increase in Profits: {corresponding_date_increase} (${greatest_increase})"),
-    (f"Greatest Decrease in Profits: {corresponding_date_decrease} (${greatest_decrease})"),
-    sep='\n'
-    )
+print("Financial Analysis", "--------------------------", f"Total Months: {month_count}", f"Total: ${net_total_pl}", f"Average Change: ${average_pl_change}", f"Greatest Increase in Profits: {corresponding_date_increase} (${greatest_increase})", f"Greatest Decrease in Profits: {corresponding_date_decrease} (${greatest_decrease})", sep='\n')
 
-#print results to the terminal
-print(pybank_results)
+#set the file name for the text file
+file_name = "pybank_results.txt"
 
 #export analysis to a text file
-with open('pybank_results.txt', 'w') as file:
-    file.write(pybank_results)
+with open(file_name, 'w') as file:
+    print("Financial Analysis", "--------------------------", f"Total Months: {month_count}", f"Total: ${net_total_pl}", f"Average Change: ${average_pl_change}", f"Greatest Increase in Profits: {corresponding_date_increase} (${greatest_increase})", f"Greatest Decrease in Profits: {corresponding_date_decrease} (${greatest_decrease})", sep='\n', file=file)
 
+    
 
-
-
-
+#save text file to analysis folder
+    #file_name = "pybank_results.txt"
+    #destination_folder = "analysis"
+    #os.rename(file_name, os.path.join(destination_folder, file_name))
