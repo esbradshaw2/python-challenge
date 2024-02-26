@@ -58,9 +58,14 @@ with open(csv_file, 'r') as file:
             #calculate average of all pforit/loss changes over time
             average_pl_change = round((sum(pl_changes) / len(pl_changes)), 2)
 
+
+        #for pl_value in pl_changes:
+            greatest_increase = max(pl_changes)
+            greatest_decrease = min(pl_changes)
+
             
 
-print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${average_pl_change}"))
+print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${average_pl_change}"), (f"Greatest Increase in Profits:  (${greatest_increase})"), (f"Greatest Decrease in Profits: (${greatest_decrease})"))
 
 
 
