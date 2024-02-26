@@ -52,8 +52,14 @@ with open(csv_file, 'r') as file:
         #calculate changes in profit/loss from one date to the next
         pl_changes = [] #empty list to store all change values
         for pl_value in range(1, len(pl_as_numbers)):
-            change = pl_as_numbers[pl_value] - pl_as_numbers[pl_value - 1]
-            pl_changes.append(change)
+            calculated_changes = pl_as_numbers[pl_value] - pl_as_numbers[pl_value - 1]
+            pl_changes.append(calculated_changes)
+            pl_change_dictionary = {
+                                    'change': pl_changes, 
+                                    'date': column_list_date
+                                    }
+            date_index = pl_change_dictionary['change'].index(max(pl_changes))
+            corresponding_date = pl_change_dictionary['date'][date_index + 1]
 
             #calculate average of all pforit/loss changes over time
             average_pl_change = round((sum(pl_changes) / len(pl_changes)), 2)
@@ -62,11 +68,11 @@ with open(csv_file, 'r') as file:
             greatest_increase = max(pl_changes)
             greatest_decrease = min(pl_changes)
 
-        for i in pl_changes:
-            
+     
+
 
 print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${average_pl_change}"), (f"Greatest Increase in Profits:  (${greatest_increase})"), (f"Greatest Decrease in Profits: (${greatest_decrease})"))
-
+print(corresponding_date)
 
 
 
