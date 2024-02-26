@@ -56,11 +56,11 @@ with open(csv_file, 'r') as file:
             pl_changes.append(change)
 
             #calculate average of all pforit/loss changes over time
-            average_pl_change = 
+            average_pl_change = round((sum(pl_changes) / len(pl_changes)), 2)
 
             
 
-print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${}"))
+print("Total Months: ", month_count, (f"Total: ${net_total_pl}"), (f"Average Change: ${average_pl_change}"))
 
 
 
